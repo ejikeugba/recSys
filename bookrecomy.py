@@ -58,7 +58,7 @@ DFurl = "https://raw.githubusercontent.com/ejikeugba/Statics/main/data/"
 def load_df(path):
     books = pd.read_csv(path+"BX-data.csv", sep=",",
                         on_bad_lines="skip", encoding="latin-1")  # .head(5000)
-    return books
+    return books.head(5000)
 
 
 book_df = load_df(DFurl)
