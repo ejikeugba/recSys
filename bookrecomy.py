@@ -93,7 +93,7 @@ re = recEngine_py()
 st.sidebar.info('**Find your book:**')
 option = st.sidebar.selectbox(
     '',
-    (list_of_all_titles), index=10486)
+    (list_of_all_titles), index=743)  # 10486
 
 userInput = re.bookTracer(book_df, option, singleUse=True)
 
