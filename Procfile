@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run bookRecomy.py
+web: sh setup.sh && streamlit run bookrecomy.py
