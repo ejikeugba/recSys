@@ -51,21 +51,17 @@ st.text("")
 st.markdown(newStyle('Recommended Books', title=False),
             unsafe_allow_html=True)
 
-#DFurl = "https://raw.githubusercontent.com/ejikeugba/Statics/main/data/"
+DFurl = "https://raw.githubusercontent.com/ejikeugba/Statics/main/data/"
 
 
 @st.cache(allow_output_mutation=True)
-# def load_df(path):
-#    books = pd.read_csv(path+"BX-data.csv", sep=",",
-#                        on_bad_lines="skip", encoding="latin-1")
-#    return books
-def load_df(dtname):
-    books = pd.read_csv(dtname, sep=",",
-                        on_bad_lines="skip", encoding="latin-1").head(10000)
+def load_df(path):
+    books = pd.read_csv(path+"BX-data.csv", sep=",",
+                        on_bad_lines="skip", encoding="latin-1")
     return books
 
 
-book_df = load_df("BX-data.csv")
+book_df = load_df(DFurl)
 
 
 @st.cache()
