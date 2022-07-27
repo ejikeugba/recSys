@@ -120,7 +120,6 @@ userID = userInput.userID.values[0]
 bkrc = re.RecEng(userID, book_df, smatrix, noBooks=number_of_books)
 
 if (bkrc is not None):
-
     ans = bkrc.iloc[:-1]
     imgs = ans['imgUrl']
     caption = ans['title']
@@ -131,12 +130,10 @@ if (bkrc is not None):
     st.text("")
 
     finalDF = ans.drop(['imgUrl', 'rating'], axis=1)
-
     finalDF.index += 1
 
     st.markdown(newStyle('Book Info', title=False),
                 unsafe_allow_html=True)
-
     st.write(finalDF)
 
     @ st.cache
