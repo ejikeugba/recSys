@@ -4,3 +4,4 @@ Pillow==9.2.0
 scikit_learn==1.1.1
 stop_words==2018.7.23
 streamlit==1.8.1
+protobuf==3.20.0
