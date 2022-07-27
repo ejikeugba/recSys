@@ -86,7 +86,7 @@ list_of_all_titles = book_df["title"].tolist()
 
 re = recEngine_py()
 
-st.sidebar.info('**Find your book:**')
+st.sidebar.info('**Select your favorite book:**')
 option = st.sidebar.selectbox(
     '',
     (list_of_all_titles), index=743)  # 10486
@@ -95,10 +95,14 @@ userInput = re.bookTracer(book_df, option, singleUse=True)
 
 
 imgs = userInput['imgUrl'].values[0]
-caption = userInput['title'].values[0]
-cols = cycle(st.sidebar.columns(1))
-next(cols).image(imgs, width=150, caption=caption)
+#caption = userInput['title'].values[0]
+#cols = cycle(st.sidebar.columns(1))
+#next(cols).image(imgs, width=150, caption=caption)
 
+st.sidebar.image(
+    imgs,
+    width=180,  # Manually Adjust the width of the image as per requirement
+)
 
 with st.sidebar.expander("view book info"):
     st.write("**ISBN:** ", userInput.ISBN.values[0])
