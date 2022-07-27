@@ -61,7 +61,7 @@ st.markdown(newStyle('Recommended Books', title=False),
 #    return books
 def load_df(dtname):
     books = pd.read_csv(dtname, sep=",",
-                        on_bad_lines="skip", encoding="latin-1")
+                        on_bad_lines="skip", encoding="latin-1").head(10000)
     return books
 
 
