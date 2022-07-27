@@ -57,7 +57,7 @@ DFurl = "https://raw.githubusercontent.com/ejikeugba/Statics/main/data/"
 @st.cache(allow_output_mutation=True)
 def load_df(path):
     books = pd.read_csv(path+"BX-data.csv", sep=",",
-                        on_bad_lines="skip", encoding="latin-1").head(5000)
+                        on_bad_lines="skip", encoding="latin-1")  # .head(5000)
     return books
 
 
