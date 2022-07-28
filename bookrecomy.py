@@ -102,9 +102,10 @@ imgs = userInput['imgUrl'].values[0]
 #st.sidebar.image(imgs, width=180)
 
 # with st.container():
-im = Image.open(imgs)
-st.sidebar.image(im, width=150)
+#im = Image.open(imgs)
+#st.sidebar.image(im, width=150)
 
+st.sidebar.markdown("![Alt Text]("+imgs+")")
 
 with st.sidebar.expander("view book info"):
     st.write("**ISBN:** ", userInput.ISBN.values[0])
