@@ -125,24 +125,8 @@ number_of_books = st.sidebar.slider(
 userID = userInput.userID.values[0]
 bkrc = re.RecEng(userID, book_df, smatrix, noBooks=number_of_books)
 
-url_list = imgs
-
-filename = 1
-
-for url in url_list:
-    try:
-        urllib.request.urlretrieve(url, f'{filename}.jpg')
-        filename += 1
-    except Exception as exc:
-        print(
-            f"Exception occued while downloading image from url {url} {str(exc)}")
-
 
 if (bkrc is not None):
-
-    imgList = []
-    for x in range(1, number_of_books):
-        imgList.append(str(x)+'.jpg')
 
     ans = bkrc.iloc[:-1]
     imgs = ans['imgUrl']
@@ -150,6 +134,22 @@ if (bkrc is not None):
     cols = cycle(st.columns(4))
     # for idx, img in enumerate(imgs):
     #    next(cols).image(img, width=150, caption=caption[idx])
+
+    url_list = imgs
+    filename = 1
+
+    for url in url_list:
+        try:
+            urllib.request.urlretrieve(url, f'{filename}.jpg')
+            filename += 1
+        except Exception as exc:
+            print(
+                f"Exception occued while downloading image from url {url} {str(exc)}")
+
+    imgList = []
+    for x in range(1, number_of_books):
+        imgList.append(str(x)+'.jpg')
+
     for idx, img in enumerate(imgList):
         next(cols).image(img, width=150, caption=caption[idx])
 
