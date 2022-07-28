@@ -187,3 +187,7 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+columns = st.columns(4)
+for column in columns:
+    column.image(imgs, width=150)
