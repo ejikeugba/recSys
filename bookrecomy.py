@@ -31,10 +31,6 @@ def newStyle(param, title=True):
 st.markdown(newStyle('Book-Crossing Recommender Engine'),
             unsafe_allow_html=True)
 
-
-# with st.container():
-#    background = Image.open('Book.jpg')
-#    st.image(background, width=700)
 st.image('Book.jpg')
 
 st.text("")
@@ -178,10 +174,9 @@ st.markdown(newStyle('Data source', title=False),
             unsafe_allow_html=True)
 st.markdown("""
 The data used in this project was adapted from the book-crossing dataset available [here](http://www2.informatik.uni-freiburg.de/~cziegler/BX/). 
-The data was originally collected by Cai-Nicolas Ziegler in a 4-week crawl (August / September 2004) from the Book-Crossing community. 
-It contains a total of 278,858 users (anonymized but with demographic information) providing 1,149,780 ratings (explicit / implicit) and 
-about 271,379 books. For further details on the dataset see the publication [here](https://dl.acm.org/doi/10.1145/1060745.1060754). 
-The figures below show the geographical locations of users in the book-crossing dataset.
+
+The book-crossing data was originally collected by Cai-Nicolas Ziegler and available [here](http://www2.informatik.uni-freiburg.de/~cziegler/BX/).
+The figure below shows the geographical locations of all the users recorded in the dataset.
 """)
 
 st.image("geoRegion.png")
@@ -192,7 +187,7 @@ st.text("")
 st.markdown(newStyle('Related Projects', title=False),
             unsafe_allow_html=True)
 st.markdown("""
-Further analysis of the dataset and related projects are available at [DataXotic](https://ejikeugba.github.io/DataXotic/project/).
+Further analysis on the dataset and similar projects are available at [DataXotic](https://ejikeugba.github.io/DataXotic/project/).
 """)
 
 hide_streamlit_style = """
