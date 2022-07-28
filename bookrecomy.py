@@ -99,6 +99,7 @@ caption = userInput['title'].values[0]
 cols = cycle(st.sidebar.columns(1))
 next(cols).image(imgs, width=150, caption=caption)
 
+foo = imgs
 #st.sidebar.image(imgs, width=180)
 
 # with st.container():
@@ -187,3 +188,5 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+st.markdown("![Alt Text]("+foo+")")
