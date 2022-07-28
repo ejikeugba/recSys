@@ -31,7 +31,7 @@ def newStyle(param, title=True):
 st.markdown(newStyle('Book-Crossing Recommender Engine'),
             unsafe_allow_html=True)
 
-st.image('Book.jpg')
+st.image('headerpic.jpeg')
 
 st.text("")
 
@@ -173,12 +173,10 @@ st.text("")
 st.markdown(newStyle('Data source', title=False),
             unsafe_allow_html=True)
 st.markdown("""
-The data used in this project was adapted from the book-crossing dataset available [here](http://www2.informatik.uni-freiburg.de/~cziegler/BX/). 
-
-The book-crossing data was originally collected by Cai-Nicolas Ziegler and available [here](http://www2.informatik.uni-freiburg.de/~cziegler/BX/).
-The figure below shows the geographical locations of all the users recorded in the dataset.
+The book-crossing data was originally collected by Cai-Nicolas Ziegler and freely available at this [link](http://www2.informatik.uni-freiburg.de/~cziegler/BX/).
 """)
-
+st.text("")
+st.text("")
 st.image("geoRegion.png")
 
 st.text("")
