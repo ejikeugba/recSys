@@ -99,10 +99,12 @@ imgs = userInput['imgUrl'].values[0]
 #cols = cycle(st.sidebar.columns(1))
 #next(cols).image(imgs, width=150, caption=caption)
 
-st.sidebar.image(
-    imgs,
-    width=180,  # Manually Adjust the width of the image as per requirement
-)
+#st.sidebar.image(imgs, width=180)
+
+# with st.container():
+im = Image.open(imgs)
+st.sidebar.image(im, width=150)
+
 
 with st.sidebar.expander("view book info"):
     st.write("**ISBN:** ", userInput.ISBN.values[0])
