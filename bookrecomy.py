@@ -1,3 +1,4 @@
+import urllib.request
 import streamlit as st
 import pandas as pd
 from PIL import Image
@@ -123,6 +124,19 @@ number_of_books = st.sidebar.slider(
 
 userID = userInput.userID.values[0]
 bkrc = re.RecEng(userID, book_df, smatrix, noBooks=number_of_books)
+
+url_list = imgs
+
+filename = 1
+
+for url in url_list:
+    try:
+        urllib.request.urlretrieve(url, f'{filename}.jpg')
+        filename += 1
+    except Exception as exc:
+        print(
+            f"Exception occued while downloading image from url {url} {str(exc)}")
+
 
 if (bkrc is not None):
 
