@@ -95,9 +95,9 @@ userInput = re.bookTracer(book_df, option, singleUse=True)
 
 
 imgs = userInput['imgUrl'].values[0]
-#caption = userInput['title'].values[0]
-#cols = cycle(st.sidebar.columns(1))
-#next(cols).image(imgs, width=150, caption=caption)
+caption = userInput['title'].values[0]
+cols = cycle(st.sidebar.columns(1))
+next(cols).image(imgs, width=150, caption=caption)
 
 #st.sidebar.image(imgs, width=180)
 
@@ -106,7 +106,7 @@ imgs = userInput['imgUrl'].values[0]
 #st.sidebar.image(im, width=150)
 
 #st.sidebar.markdown("![Alt Text]("+imgs+")")
-st.sidebar.image(imgs, width=150)
+#st.sidebar.image(imgs, width=150)
 
 with st.sidebar.expander("view book info"):
     st.write("**ISBN:** ", userInput.ISBN.values[0])
@@ -187,7 +187,3 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-columns = st.columns(4)
-for column in columns:
-    column.image(imgs, width=150)
