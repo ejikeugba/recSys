@@ -125,11 +125,18 @@ userID = userInput.userID.values[0]
 bkrc = re.RecEng(userID, book_df, smatrix, noBooks=number_of_books)
 
 if (bkrc is not None):
+
+    imgList = []
+    for x in range(1, number_of_books):
+        imgList.append(str(x)+'.jpg')
+
     ans = bkrc.iloc[:-1]
     imgs = ans['imgUrl']
     caption = ans['title']
     cols = cycle(st.columns(4))
-    for idx, img in enumerate(imgs):
+    # for idx, img in enumerate(imgs):
+    #    next(cols).image(img, width=150, caption=caption[idx])
+    for idx, img in enumerate(imgList):
         next(cols).image(img, width=150, caption=caption[idx])
 
     st.text("")
