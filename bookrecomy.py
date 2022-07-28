@@ -90,7 +90,7 @@ re = recEngine_py()
 st.sidebar.info('**Select your favorite book:**')
 option = st.sidebar.selectbox(
     '',
-    (list_of_all_titles), index=743)  # 10486
+    (list_of_all_titles), index=903)
 
 userInput = re.bookTracer(book_df, option, singleUse=True)
 
@@ -115,7 +115,7 @@ st.sidebar.text("")
 
 st.sidebar.info('**Number of books to recommend:**')
 number_of_books = st.sidebar.slider(
-    '', 1, 20, 8)
+    '', 1, 10, 4)
 
 userID = userInput.userID.values[0]
 bkrc = re.RecEng(userID, book_df, smatrix, noBooks=number_of_books)
@@ -126,7 +126,7 @@ if (bkrc is not None):
     ans = bkrc.iloc[:-1]
     imgs = ans['imgUrl']
     caption = ans['title']
-    cols = cycle(st.columns(4))
+    cols = cycle(st.columns(2))
 
     url_list = imgs
     filename = 1
@@ -144,7 +144,7 @@ if (bkrc is not None):
         imgList.append(str(x)+'.jpg')
 
     for idx, img in enumerate(imgList):
-        next(cols).image(img, width=150, caption=caption[idx])
+        next(cols).image(img, width=250, caption=caption[idx])
 
     st.text("")
 
