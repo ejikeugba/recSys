@@ -54,7 +54,7 @@ st.markdown(newStyle('Recommended Books', title=False),
 DFurl = "https://raw.githubusercontent.com/ejikeugba/Statics/main/data/"
 
 
-@st.cache(allow_output_mutation=True)
+# @st.cache(allow_output_mutation=True)
 def load_df(path):
     books = pd.read_csv(path+"BX-data.csv", sep=",",
                         on_bad_lines="skip", encoding="latin-1")  # .head(5000)
@@ -64,7 +64,7 @@ def load_df(path):
 book_df = load_df(DFurl)
 
 
-@st.cache()
+# @st.cache()
 def cosine_sim(df_var):
     combined_features = (
         df_var["title"] + " " + df_var["author"]
