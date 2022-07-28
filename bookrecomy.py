@@ -32,10 +32,10 @@ st.markdown(newStyle('Book-Crossing Recommender Engine'),
             unsafe_allow_html=True)
 
 
-with st.container():
-    background = Image.open('Book.jpg')
-    st.image(background, width=700)
-
+# with st.container():
+#    background = Image.open('Book.jpg')
+#    st.image(background, width=700)
+st.image('Book.jpg')
 
 st.text("")
 
