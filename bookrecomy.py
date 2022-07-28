@@ -59,7 +59,7 @@ DFurl = "https://raw.githubusercontent.com/ejikeugba/Statics/main/data/"
 def load_df(path):
     books = pd.read_csv(path+"BX-data.csv", sep=",",
                         on_bad_lines="skip", encoding="latin-1")  # .head(5000)
-    return books.head(5000)
+    return books.head(10000)
 
 
 book_df = load_df(DFurl)
@@ -94,21 +94,16 @@ option = st.sidebar.selectbox(
 
 userInput = re.bookTracer(book_df, option, singleUse=True)
 
+urlx = userInput['imgUrl'].values[0]
+captx = userInput['title'].values[0]
 
-imgs = userInput['imgUrl'].values[0]
-caption = userInput['title'].values[0]
-cols = cycle(st.sidebar.columns(1))
-next(cols).image(imgs, width=150, caption=caption)
+try:
+    urllib.request.urlretrieve(urlx, 'imgx.jpg')
+except Exception as exc:
+    print(
+        f"Exception occured while downloading image from url {urlx} {str(exc)}")
 
-foo = imgs
-#st.sidebar.image(imgs, width=180)
-
-# with st.container():
-#im = Image.open(imgs)
-#st.sidebar.image(im, width=150)
-
-#st.sidebar.markdown("![Alt Text]("+imgs+")")
-#st.sidebar.image(imgs, width=150)
+st.sidebar.image('imgx.jpg', width=150, caption=captx)
 
 with st.sidebar.expander("view book info"):
     st.write("**ISBN:** ", userInput.ISBN.values[0])
@@ -132,8 +127,6 @@ if (bkrc is not None):
     imgs = ans['imgUrl']
     caption = ans['title']
     cols = cycle(st.columns(4))
-    # for idx, img in enumerate(imgs):
-    #    next(cols).image(img, width=150, caption=caption[idx])
 
     url_list = imgs
     filename = 1
@@ -144,10 +137,10 @@ if (bkrc is not None):
             filename += 1
         except Exception as exc:
             print(
-                f"Exception occued while downloading image from url {url} {str(exc)}")
+                f"Exception occured while downloading image from url {url} {str(exc)}")
 
     imgList = []
-    for x in range(1, number_of_books):
+    for x in range(1, number_of_books+1):
         imgList.append(str(x)+'.jpg')
 
     for idx, img in enumerate(imgList):
@@ -176,7 +169,7 @@ if (bkrc is not None):
     )
 else:
     st.info(
-        '**No close match currently found for the selected book! Please make a different book selection.**')
+        '**No close match currently found for the selected book! Please make a different selection.**')
 
 st.text("")
 st.text("")
@@ -209,5 +202,3 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-st.markdown("![Alt Text]("+foo+")")
